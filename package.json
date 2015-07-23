@@ -1,0 +1,46 @@
+{
+  "name": "audio-poly-terrain",
+  "version": "0.0.0",
+  "description": "3d polygon terrain of [frequency, time, value]",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js -d --serve bundle.js --live",
+    "build": "browserify index.js -o bundle.js -g uglifyify",
+    "test": "browserify test.js | smokestack | tap-spec",
+    "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
+    "push": "gh-pages -d dist",
+    "deploy": "npm run build && npm run dist && npm run push"
+  },
+  "browserify": {
+    "transform": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahdinosaur/audio-poly-terrain"
+  },
+  "author": "ahdinosaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahdinosaur/audio-poly-terrain/issues"
+  },
+  "homepage": "https://github.com/ahdinosaur/audio-poly-terrain",
+  "dependencies": {
+    "gl-plot3d": "^1.4.2",
+    "gl-surface3d": "^1.0.8",
+    "ndarray": "^1.0.18",
+    "ndarray-hop": "^2.1.0",
+    "node-audio-rms": "^2.0.0",
+    "read-audio": "^6.2.2",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^10.0.0",
+    "budo": "^4.0.0",
+    "gh-pages": "^0.3.0",
+    "smokestack": "^3.3.0",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.1.0"
+  }
+}
